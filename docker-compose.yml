@@ -1,0 +1,18 @@
+version: '3'
+services:
+  dev:
+    container_name: 'announcing-dev'
+    stdin_open: true
+    tty: true
+    ports:
+      - '127.0.0.1:3000:3000'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/opt/announcing-dev:delegated
+      - node_modules:/opt/announcing-dev/node_modules
+    working_dir: /opt/announcing-dev
+    command: sh -c './docker-init.sh && bash'
+volumes:
+  node_modules:
