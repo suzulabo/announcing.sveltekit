@@ -3,6 +3,9 @@
   "engines": {
     "node": "=18"
   },
+  "scripts": {
+    "format": "prettier --write ."
+  },
   "devDependencies": {
     "prettier": "^2.8.0"
   }
