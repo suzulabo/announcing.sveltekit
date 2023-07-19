@@ -8,9 +8,9 @@ importers:
 
   .:
     devDependencies:
-      typescript:
-        specifier: ^5.1.6
-        version: 5.1.6
+      prettier:
+        specifier: ^2.8.0
+        version: 2.8.8
 
   packages/viewer:
     devDependencies:
