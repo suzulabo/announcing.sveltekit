@@ -2,7 +2,7 @@
   "name": "announcing-dev",
   "dockerComposeFile": "../docker-compose.yml",
   "service": "dev",
-  "workspaceFolder": "/opt/announcing-dev",
+  "workspaceFolder": "/announcing/app",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -11,7 +11,8 @@
         "EditorConfig.EditorConfig",
         "dbaeumer.vscode-eslint",
         "ms-vscode.vscode-typescript-next",
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
+        "svelte.svelte-vscode"
       ]
     }
   }
