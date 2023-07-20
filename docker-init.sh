@@ -4,13 +4,11 @@ set -ex
 
 
 DIRS=".pnpm-store node_modules packages/viewer/node_modules"
-
-mkdir -p /announcing/data/.pnpm-store
-ln -sf /announcing/data/.pnpm-store .
-mkdir -p /announcing/data/node_modules
-ln -sf /announcing/data/node_modules .
-mkdir -p /announcing/data/packages/viewer/node_modules
-ln -sf /announcing/data/packages/viewer/node_modules packages/viewer
+for DIR in ${DIRS}
+do
+  mkdir -p /announcing/data/${DIR} ./${DIR}
+  ln -sfn /announcing/data/${DIR} ./${DIR}
+done
 
 rsync -a /pnpm-store-cache/ .pnpm-store/
 
