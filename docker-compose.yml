@@ -5,14 +5,14 @@ services:
     stdin_open: true
     tty: true
     ports:
-      - '127.0.0.1:3000:3000'
+      - '127.0.0.1:5173:5173'
     build:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - .:/opt/announcing-dev:delegated
-      - node_modules:/opt/announcing-dev/node_modules
-    working_dir: /opt/announcing-dev
+      - .:/announcing/app:delegated
+      - pnpm-store-cache:/pnpm-store-cache
+    working_dir: /announcing/app
     command: sh -c './docker-init.sh && bash'
 volumes:
-  node_modules:
+  pnpm-store-cache:

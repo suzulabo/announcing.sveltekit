@@ -1,5 +1,6 @@
 node_modules
-dist
 .pnpm-store
+dist
 
 pnpm-lock.yaml
+packages
