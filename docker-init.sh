@@ -2,8 +2,7 @@
 
 set -ex
 
-
-DIRS=".pnpm-store node_modules packages/viewer/node_modules"
+DIRS=".pnpm-store node_modules"
 for DIR in ${DIRS}
 do
   mkdir -p /announcing/data/${DIR} ./${DIR}

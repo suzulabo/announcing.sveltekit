@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "engines": {
+    "node": "=18"
+  },
+  "scripts": {
+    "gen:ts": "json2ts --additionalProperties=false --cwd=schemas -i 'schemas/*.json' -o typescript"
+  },
+  "devDependencies": {
+    "ajv": "^8.12.0",
+    "eslint": "^8.47.0",
+    "json-schema-to-typescript": "^13.0.2"
+  }
+}
