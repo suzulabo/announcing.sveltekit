@@ -1,5 +1,6 @@
 {
   "name": "announcing-dev",
+  "runArgs": ["--name", "announcing-dev"],
   "build": {
     "dockerfile": "Dockerfile"
   },
