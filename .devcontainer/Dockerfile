@@ -1,4 +1,4 @@
-FROM node:18.17.1
+FROM node:18.17.1-slim
 
 # Install basic development tools
 RUN apt update && apt install -y less man-db sudo git
