@@ -13,4 +13,4 @@ ENV DEVCONTAINER=true
 
 RUN npm install -g pnpm@8
 
-RUN echo 'export PS1="\W \$ "' >> /root/.bashrc
+RUN echo 'export PS1="\W \$ "' >> /home/node/.bashrc
