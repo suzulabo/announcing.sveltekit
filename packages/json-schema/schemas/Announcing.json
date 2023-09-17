@@ -1,0 +1,52 @@
+{
+  "title": "Announcing",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schema-json.announcing.app/Announcing.json",
+  "additionalProperties": false,
+  "definitions": {
+    "Date": {
+      "type": "string",
+      "format": "date-time",
+      "minLength": 1,
+      "maxLength": 30,
+      "nullable": false
+    },
+    "Post": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title"],
+      "properties": {
+        "title": { "type": "string" }
+      }
+    },
+    "Announcement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["updated", "info"],
+      "properties": {
+        "updated": {
+          "$ref": "#/definitions/Date"
+        },
+        "info": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name"],
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          }
+        },
+        "posts": {
+          "type": "array",
+          "nullable": true,
+          "items": { "$ref": "#/definitions/Post" }
+        },
+        "refs": {
+          "type": "array",
+          "nullable": true
+        }
+      }
+    }
+  }
+}

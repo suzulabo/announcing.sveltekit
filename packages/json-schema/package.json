@@ -4,7 +4,7 @@
     "node": "=18"
   },
   "scripts": {
-    "gen:ts": "json2ts --additionalProperties=false --cwd=schemas -i 'schemas/*.json' -o typescript"
+    "gen:ts": "json2t --unreachableDefinitions -i 'schemas/Announcing.json' -o typescript/announcing.d.ts"
   },
   "devDependencies": {
     "ajv": "^8.12.0",
