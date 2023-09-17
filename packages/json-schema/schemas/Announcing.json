@@ -3,13 +3,18 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schema-json.announcing.app/Announcing.json",
   "additionalProperties": false,
-  "definitions": {
+  "$defs": {
     "Date": {
       "type": "string",
       "format": "date-time",
       "minLength": 1,
-      "maxLength": 30,
-      "nullable": false
+      "maxLength": 30
+    },
+    "Url": {
+      "type": "string",
+      "format": "uri-reference",
+      "minLength": 1,
+      "maxLength": 2000
     },
     "Post": {
       "type": "object",
@@ -19,34 +24,51 @@
         "title": { "type": "string" }
       }
     },
+    "PostsRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["href", "count"],
+      "properties": {
+        "href": { "$ref": "#/$defs/Url" },
+        "count": { "type": "number" }
+      }
+    },
+    "Info": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1, "maxLength": 50 },
+        "desc": { "type": "string", "minLength": 1, "maxLength": 500 },
+        "link": { "$ref": "#/$defs/Url" },
+        "icon": { "$ref": "#/$defs/Url" },
+        "header": { "$ref": "#/$defs/Url" }
+      }
+    },
     "Announcement": {
       "type": "object",
       "additionalProperties": false,
       "required": ["updated", "info"],
       "properties": {
         "updated": {
-          "$ref": "#/definitions/Date"
+          "$ref": "#/$defs/Date"
         },
         "info": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["name"],
-          "properties": {
-            "name": {
-              "type": "string"
-            }
-          }
+          "$ref": "#/$defs/Info"
         },
         "posts": {
           "type": "array",
-          "nullable": true,
-          "items": { "$ref": "#/definitions/Post" }
+          "items": { "$ref": "#/$defs/Post" }
         },
         "refs": {
           "type": "array",
-          "nullable": true
+          "items": { "$ref": "#/$defs/PostsRef" }
         }
       }
+    },
+    "Posts": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Post" }
     }
   }
 }

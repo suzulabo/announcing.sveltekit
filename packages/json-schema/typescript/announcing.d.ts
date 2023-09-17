@@ -10,6 +10,16 @@
  * via the `definition` "Date".
  */
 export type Date = string;
+/**
+ * This interface was referenced by `Announcing`'s JSON-Schema
+ * via the `definition` "Url".
+ */
+export type Url = string;
+/**
+ * This interface was referenced by `Announcing`'s JSON-Schema
+ * via the `definition` "Posts".
+ */
+export type Posts = Post[];
 
 export interface Announcing {}
 /**
@@ -21,13 +31,30 @@ export interface Post {
 }
 /**
  * This interface was referenced by `Announcing`'s JSON-Schema
+ * via the `definition` "PostsRef".
+ */
+export interface PostsRef {
+  href: Url;
+  count: number;
+}
+/**
+ * This interface was referenced by `Announcing`'s JSON-Schema
+ * via the `definition` "Info".
+ */
+export interface Info {
+  name: string;
+  desc?: string;
+  link?: Url;
+  icon?: Url;
+  header?: Url;
+}
+/**
+ * This interface was referenced by `Announcing`'s JSON-Schema
  * via the `definition` "Announcement".
  */
 export interface Announcement {
   updated: Date;
-  info: {
-    name: string;
-  };
+  info: Info;
   posts?: Post[];
-  refs?: unknown[];
+  refs?: PostsRef[];
 }
